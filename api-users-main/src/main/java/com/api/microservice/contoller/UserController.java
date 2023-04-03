@@ -41,7 +41,7 @@ public class UserController {
 
 
         if (!funcao.equals(Funcao.ADMIN)){
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body( "Usuário sem permissão" );
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body( "Usuário não possui esse nivel de acesso" );
         }
         return ResponseEntity.status(HttpStatus.OK).body(userService.fidAll());
     }
@@ -51,7 +51,7 @@ public class UserController {
                                              @RequestParam(value = "funcao")Funcao funcao) {
 
         if (!funcao.equals(Funcao.ADMIN)){
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body( "Usuário sem permissão" );
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body( "Usuário não possui esse nivel de acesso" );
         }
        return new ResponseEntity<>(userService.fingById(id), HttpStatus.OK);
     }
@@ -64,7 +64,7 @@ public class UserController {
 
 
         if (!funcao.equals(Funcao.ADMIN)){
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body( "Usuário sem permissão" );
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body( "Usuário não possui esse nivel de acesso" );
         }
 
         Tabela tabela = userService.fingById(id);
@@ -79,7 +79,7 @@ public class UserController {
 
 
         if (!funcao.equals(Funcao.ADMIN)){
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body( "Usuário sem permissão" );
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body( "Usuário não possui esse nivel de acesso" );
         }
 
         Tabela tabela = userService.fingById(id);
